@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
+import { gsap } from "gsap";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home"
 import About from "./components/About";
@@ -16,8 +17,15 @@ const App = () => {
       setIsOpen(!isOpen)
       console.log([isOpen, setIsOpen])
   } 
-
+  
   const location = useLocation()
+  
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
+
 
   return (
     <>
@@ -29,7 +37,7 @@ const App = () => {
         onClick={toggleMenu}
         ></div>
         <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
-            <li><Link to={{pathname: '/about'}} className={`nav-links-a ${location.pathname === '/about' ? 'selected' : ''}`}>About</Link></li>
+            <li><Link to="/about" className={`nav-links-a ${location.pathname == '/about' ? 'selected' : ''}`}>About</Link></li>
             <li><Link to="/skills" className={`nav-links-a ${location.pathname == '/skills' ? 'selected' : ''}`}>Skills</Link></li>
             <li><Link to="/projects" className={`nav-links-a ${location.pathname == '/projects' ? 'selected' : ''}`}>Projects</Link></li>
             <li><Link to="/contact" className={`nav-links-a ${location.pathname == '/contact' ? 'selected' : ''}`}>Contact</Link></li>
