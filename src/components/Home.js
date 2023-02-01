@@ -57,7 +57,7 @@ const Home = () => {
                     <h3>Technologies and tools that I use in building websites.</h3>
                 </div>
                 <div className="skill-info">
-                    <div ref={skills} className="skill-box">
+                    <div className="skill-box">
                         <div className="skill-icon">
                             <img src="images/html-5.svg" alt="svg"/>
                         </div>
